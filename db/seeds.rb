@@ -115,4 +115,7 @@ m3_tutorial.videos.create!({
   "position"=>6
 })
 
+User.destroy_all
+
 User.create!(email: 'admin@example.com', first_name: 'Bossy', last_name: 'McBosserton', password:  "password", role: :admin)
+User.create!(email: 'user@example.com', first_name: 'User', last_name: 'McUserton', password:  "password", role: :default, git_hub_token: "297f3266de9167cd907402888af4721c431bb1dc")
