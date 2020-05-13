@@ -86,19 +86,9 @@ describe "A registered user", :vcr do
     expect(page).to have_no_content("Repos")
     expect(page).to have_no_content("Following")
     expect(page).to have_no_content("Followers")
+    click_link "Connect to GitHub"
 
-    response = OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
-      provider: 'github',
-      uid: '12345',
-      credentials: {
-        token: ENV['GH_TEST_KEY_1']
-        }
-      })
-
-    @user.update_auth(response)
-    expect(@user.uid).to eq('12345')
-
-    visit dashboard_path
+    expect(page).to have_current_path("/dashboard")
     expect(page).to have_content("Following")
   end
 end

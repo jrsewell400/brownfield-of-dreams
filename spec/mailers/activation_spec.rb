@@ -10,6 +10,6 @@ RSpec.describe ActivationMailer, type: :mailer do
     expect(email.to).to have_content("fake@example.com")
     expect(email.from).to have_content("no-reply@turingtutorials.com")
     expect(email.body.encoded).to have_content("Hello David Tran,")
-    expect(email.body.encoded).to have_link('here', href: "/activate")
+    expect(email.body.encoded).to have_link('here')
   end
 end
