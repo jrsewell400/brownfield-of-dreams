@@ -1,8 +1,8 @@
 class Admin::TutorialsController < Admin::BaseController
-  def show 
+  def show
     @tutorial = Tutorial.find(params[:id])
   end
-  
+
   def edit
     @tutorial = Tutorial.find(params[:id])
   end
@@ -16,12 +16,11 @@ class Admin::TutorialsController < Admin::BaseController
     if tutorial.save
       flash[:success] = "Successfully created tutorial."
       redirect_to admin_tutorial_path(tutorial.id)
-    else 
+    else
       flash[:error] = tutorial.errors.full_messages.to_sentence
       redirect_to '/admin/tutorials/new'
     end
   end
-
 
   def update
     tutorial = Tutorial.find(params[:id])
@@ -75,7 +74,7 @@ class Admin::TutorialsController < Admin::BaseController
   def video_params(video)
     title = video[:snippet][:title]
     description = video[:snippet][:description]
-    video_id = video[:id]
+    video_id = video[:snippet][:resourceId][:videoId]
     thumbnail = video[:snippet][:thumbnails][:high][:url]
     { description: description,
       title: title,
