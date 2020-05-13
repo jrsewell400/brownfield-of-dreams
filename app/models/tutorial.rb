@@ -1,5 +1,7 @@
 class Tutorial < ApplicationRecord
-  validates_presence_of :title, :description, :thumbnail
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :thumbnail, presence: true
   has_many :videos, -> { order(position: :ASC) }, inverse_of: :tutorial,
                                                   dependent: :destroy
   acts_as_taggable_on :tags, :tag_list

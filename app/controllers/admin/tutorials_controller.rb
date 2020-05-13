@@ -14,7 +14,7 @@ class Admin::TutorialsController < Admin::BaseController
   def create
     tutorial = Tutorial.create(tutorial_params)
     if tutorial.save
-      flash[:success] = "Successfully created tutorial."
+      flash[:success] = 'Successfully created tutorial.'
       redirect_to admin_tutorial_path(tutorial.id)
     else
       flash[:error] = tutorial.errors.full_messages.to_sentence
@@ -44,7 +44,8 @@ class Admin::TutorialsController < Admin::BaseController
     tutorial = Tutorial.create(import_tutorial_params)
     create_tutorial_videos(tutorial, playlist)
     next_page(tutorial, service, playlist)
-    flash[:success] = "Successfully created tutorial. #{view_context.link_to('View it here.', tutorial_path(tutorial.id))}"
+    flash[:success] = "Successfully created tutorial.
+      #{view_context.link_to('View it here.', tutorial_path(tutorial.id))}"
     redirect_to admin_dashboard_path
   end
 
@@ -64,7 +65,10 @@ class Admin::TutorialsController < Admin::BaseController
   end
 
   def tutorial_params
-    params.require(:tutorial).permit(:title, :description, :thumbnail, :tag_list)
+    params.require(:tutorial).permit(:title,
+                                     :description,
+                                     :thumbnail,
+                                     :tag_list)
   end
 
   def import_tutorial_params
