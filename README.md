@@ -1,7 +1,5 @@
 # Brownfield Of Dreams
 
-This is the base repo for a brownfield project used at Turing for Backend Mod 3.
-
 Project Spec and Evaluation Rubric: https://github.com/turingschool-examples/brownfield-of-dreams
 
 ### Project Board
@@ -77,5 +75,5 @@ If set up correctly, and assuming you have internet access and the Youtube API i
 * [chromedriver-helper](http://chromedriver.chromium.org/)
 
 ### Versions
-* Ruby 2.4.1
-* Rails 5.2.0
+* Ruby 2.5.3
+* Rails 5.1.7
